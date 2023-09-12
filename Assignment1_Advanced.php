@@ -1,13 +1,23 @@
+<!--  
+Albert Gabriel Tuwan    - 2502001353
+Erin Kumala Aliwarga    - 2502003775
+Glory Daniella          - 2502003895
+Jason Adriel            - 2501985451
+Shelly Alfianda         - 2501972625
+-->
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 </head>
 
 <style>
     .error {
         color: #FF0000;
-        display: inline-block;
+    }
+
+    .hidden {
+        position: absolute;
     }
 
     body {
@@ -20,6 +30,15 @@
         display: flex;
         flex-direction: column;
         justify-content: baseline;
+        gap: 1rem;
+    }
+
+    input[type=text] {
+        width: 24rem;
+    }
+
+    textarea {
+        width: 24.1rem;
     }
 
     .output {
@@ -62,24 +81,13 @@
             }
         }
 
-        // Processing website url
-        // if (empty($_POST["website"])) {
-        //     $website = "";
-        // } else {
-        //     $website = test_input($_POST["website"]);
-        //     // Check if URL address syntax is valid (this regular expression also allows dashes in the url)
-        //     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $website)) {
-        //         $websiteErr = "Invalid URL";
-        //     }
-        // }
-
-        // Processing website url v2.0
+        // Processing website URL v2.0 using filter_var() instead
         if (empty($_POST["website"])) {
             $website = "";
         } else {
             $website = test_input($_POST["website"]);
             if (!filter_var($website, FILTER_VALIDATE_URL)) {
-                $websiteErr = "Invalid URL";
+                $websiteErr = "&nbspInvalid URL";
             }
         }
 
@@ -113,42 +121,66 @@
 
 
     <form method="post" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <span class="error">* required field</span><br><br>
-        <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>">
-        <label class="error" for="name">* <?php echo $nameErr; ?></label>
-
-        <input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>">
-        <span class="error">* <?php echo $emailErr; ?></span>
-
-        <input type="text" name="website" placeholder="Website Link" value="<?php echo $website; ?>">
-        <span class="error"><?php echo $websiteErr; ?></span>
+        <span class="error">*: required field</span>
+        <div>
+            <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>">
+            <label class="error hidden" for="name">&nbsp;*
+                <?php echo $nameErr; ?>
+            </label>
+        </div>
+        <div>
+            <input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>">
+            <span class="error hidden">&nbsp;*
+                <?php echo $emailErr; ?>
+            </span>
+        </div>
+        <div>
+            <input type="text" name="website" placeholder="Website Link" value="<?php echo $website; ?>">
+            <span class="error hidden">
+                <?php echo $websiteErr; ?>
+            </span>
+        </div>
 
         <textarea name="comment" rows="5" placeholder="Comment here!" cols="40"><?php echo $comment; ?></textarea>
 
-
-        <input type="radio" name="gender" <?php if (isset($gender) && $gender == "female") echo "checked"; ?> value="female">Female
-        <input type="radio" name="gender" <?php if (isset($gender) && $gender == "male") echo "checked"; ?> value="male">Male
-        <input type="radio" name="gender" <?php if (isset($gender) && $gender == "prefer not to say") echo "checked"; ?> value="prefer not to say">Prefer not to say
-        <span class="error">* <?php echo $genderErr; ?></span>
-        <br><br>
+        <div>
+            Gender
+            <span class="error">&nbsp;*
+                <?php echo $genderErr; ?>
+            </span>
+            <div>
+                <input type="radio" name="gender" <?php if (isset($gender) && $gender == "Female")
+                    echo "checked"; ?>
+                    value="Female">Female<br>
+                <input type="radio" name="gender" <?php if (isset($gender) && $gender == "Male")
+                    echo "checked"; ?>
+                    value="Male">Male<br>
+                <input type="radio" name="gender" <?php if (isset($gender) && $gender == "Prefer not to say")
+                    echo "checked"; ?> value="Prefer not to say">Prefer not to say
+            </div>
+            <br>
+        </div>
 
         <input type="submit" name="submit" value="Submit">
     </form>
 
     <h2>Your Input:</h2>
-    <div class = "output">
+    <div class="output">
         <?php
-        echo $name;
-        echo "<br>";
-        echo $email;
-        echo "<br>";
-        if (!empty($_POST["website"])) {
-            echo "<a href='$website'>$website</a>";
+        if (!empty($_POST["name"]) && !empty($_POST["email"]) && isset($gender) && !empty($gender)) {
+            echo $name;
             echo "<br>";
+            echo $email;
+            echo "<br>";
+            if (!empty($_POST["website"])) {
+                echo "<a href='$website'>$website</a>";
+                echo "<br>";
+            }
+            echo $comment;
+            echo "<br>";
+            echo $gender;
         }
-        echo $comment;
-        echo "<br>";
-        echo $gender;
+
         ?>
     </div>
 
