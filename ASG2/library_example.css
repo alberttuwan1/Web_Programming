@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+}
+
+nav > ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+
+nav > ul > a  {
+    color: white;
+    text-decoration: none;
+}
+
+.search-bar {
+    margin-top: 10rem;
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+}
