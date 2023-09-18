@@ -6,6 +6,7 @@ nav {
     display: flex;
     padding: 1rem;
     justify-content: space-around;
+    align-items: center;
     background-color: black;
     color: white;
 }
@@ -24,8 +25,31 @@ nav > ul > a  {
 }
 
 .search-bar {
-    margin-top: 10rem;
+    margin-top: 5rem;
     width: 98vw;
     display: flex;
     justify-content: center;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 0.25rem;
+}
+
+th {
+    background-color: whitesmoke;
+}
+
+table {
+    margin-top: 1rem;
+}
+
+#logo-img {
+    width: 128px;
 }
