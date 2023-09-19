@@ -11,7 +11,7 @@ nav {
     color: white;
 }
 
-nav > ul {
+nav>ul {
     display: flex;
     list-style-type: none;
     justify-content: space-between;
@@ -19,13 +19,13 @@ nav > ul {
 }
 
 
-nav > ul > a  {
+nav>ul>a {
     color: white;
     text-decoration: none;
     padding: 0.25rem;
 }
 
-nav > ul > a:hover {
+nav>ul>a:hover {
     background-color: white;
     color: black;
 }
@@ -44,7 +44,9 @@ nav > ul > a:hover {
     align-items: center;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid gray;
     border-collapse: collapse;
     padding: 0.25rem;
@@ -116,4 +118,3 @@ table {
 .delete-button:hover {
     background-color: red;
 }
-

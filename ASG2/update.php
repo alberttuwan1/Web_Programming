@@ -35,8 +35,8 @@ function find_isbn($isbn)
                 echo "<br>";
             }
             echo "</pre>";
-        } else {
-            echo 'No data.';
+        } else if (isset($_GET['isbn'])) {
+            echo "No data found.";
         }
         ?>
     </div>
@@ -72,7 +72,7 @@ function find_isbn($isbn)
                 echo "Data updated successfully.";
             }
             ?>
-        </div>s
+        </div>
 
     <?php endif; ?>
 
