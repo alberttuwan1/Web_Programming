@@ -53,3 +53,21 @@ table {
 #logo-img {
     width: 128px;
 }
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    width: 25vw;
+}
+
+.form-container {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.output-container {
+    text-align: center;
+    color: red;
+}

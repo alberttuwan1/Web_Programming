@@ -10,6 +10,8 @@ if (mysqli_connect_errno()) {
     var_dump($config);
     throw new Exception("An error occurred when connecting to the database: " . mysqli_connect_error());
 }
+
+$stmt = mysqli_stmt_init($config);
 ?>
 
 
