@@ -19,6 +19,7 @@
         <?php
         $sql = 'SELECT * FROM books';
         $result = mysqli_query($config, $sql);
+        $i = 0;
         while ($row = mysqli_fetch_assoc($result)) {
             if (!isset($_GET['title']) || stripos($row['title'], $_GET['title']) !== false) {
                 echo '<tr>';
@@ -27,6 +28,10 @@
                 }
                 echo '</tr>';
             }
+            if ($i > 15) {
+                break;
+            }
+            ++$i;
         }
         ?>
     </table>

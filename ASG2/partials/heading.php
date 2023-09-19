@@ -27,7 +27,7 @@ $stmt = mysqli_stmt_init($config);
 
 <body>
     <nav>
-        <img src="logo.png" id="logo-img" alt="SuNiB">
+        <a href="index.php"><img src="logo.png" id="logo-img" alt="SuNiB"></a>
         <ul>
             <a href="index.php">
                 <li>Search</li>

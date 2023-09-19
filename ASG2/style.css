@@ -22,10 +22,16 @@ nav > ul {
 nav > ul > a  {
     color: white;
     text-decoration: none;
+    padding: 0.25rem;
+}
+
+nav > ul > a:hover {
+    background-color: white;
+    color: black;
 }
 
 .search-bar {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     width: 98vw;
     display: flex;
     justify-content: center;
@@ -62,12 +68,50 @@ table {
 }
 
 .form-container {
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
 
 .output-container {
+    margin-top: 1rem;
     text-align: center;
     color: red;
+    font-size: x-large;
+    font-style: italic;
+    font-weight: bold;
 }
+
+.isbn-container {
+    display: flex;
+    text-align: left;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.isbn-ok {
+    border: 2px solid greenyellow;
+}
+
+.not-ok {
+    border: 2px solid red;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.delete-button {
+    margin-top: 1rem;
+    background-color: salmon;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: red;
+}
+
