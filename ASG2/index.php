@@ -35,6 +35,9 @@
         }
         ?>
     </table>
+    <br>
+    <p><em>The view above contains only the first 15 books.</em></p>
 </div>
+
 
 <?php include_once('partials/footer.php') ?>

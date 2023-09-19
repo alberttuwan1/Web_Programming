@@ -55,16 +55,24 @@ function find_isbn($isbn)
                 <input type="submit" name="delete" value="Delete Data" class="delete-button">
             </form>
         </div>
-        <div class = "output-container">
+        <div class="output-container">
             <?php
             if (isset($_POST['delete'])) {
                 mysqli_stmt_prepare($stmt, "DELETE FROM books WHERE isbn = ?");
                 mysqli_stmt_bind_param($stmt, "s", $_GET['isbn']);
                 mysqli_stmt_execute($stmt);
                 echo "Data deleted successfully.";
+            } else if (
+                !empty($_POST['title']) && !empty($_POST['author']) && !empty($_POST['publisher']) && !empty($_POST['type'])
+                && !empty($_POST['year']) && isset($_POST['edit'])
+            ) {
+                mysqli_stmt_prepare($stmt, "UPDATE books SET title = ?, author = ?, publisher = ?, type = ?, release_year = ? WHERE isbn = ?");
+                mysqli_stmt_bind_param($stmt, "ssssss", $_POST['title'], $_POST['author'], $_POST['publisher'], $_POST['type'], $_POST['year'], $_GET['isbn']);
+                mysqli_stmt_execute($stmt);
+                echo "Data updated successfully.";
             }
             ?>
-        </div>
+        </div>s
 
     <?php endif; ?>
 

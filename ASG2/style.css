@@ -39,7 +39,9 @@ nav > ul > a:hover {
 
 .table-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 table, th, td {
