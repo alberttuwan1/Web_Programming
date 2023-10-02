@@ -16,7 +16,7 @@ function find_isbn($isbn)
 
 <div class="form-container">
     <form action="" , method="GET">
-        <input type="text" name="isbn" class=<?= isset($_GET['isbn']) && !empty(find_isbn($_GET['isbn'])) ? "isbn-ok" : "not-ok" ?> placeholder="Search ISBN">
+        <input type="text" name="isbn" class=<?= isset($_GET['isbn']) && !empty(find_isbn($_GET['isbn'])) ? "isbn-ok" : "not-ok" ?> autofocus placeholder="Search ISBN">
         <input type="submit">
     </form>
 </div>
