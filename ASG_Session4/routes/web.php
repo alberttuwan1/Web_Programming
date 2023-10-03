@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::view('/about', 'about', [
-    'heading' => 'About'
+    'heading' => 'About Us'
 ]);

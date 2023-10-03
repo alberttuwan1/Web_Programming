@@ -4,15 +4,50 @@
 
 body {
     padding: 3rem;
-    background-color: beige;
+    background-color: rgb(255 247 237);
 }
 
-.data {
-    margin-bottom: 1rem;
+.img-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    column-gap: 4rem;
+    row-gap: 1.5rem;
+    max-width: 75vw;
 }
 
-.data > h3, h4 {
+.img-card {
+    display: flex;
+    flex-direction: column;
+    width: 9.5rem;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.img-card:hover {
+    box-shadow: 1px 1px 32px rgba(0, 0, 0, 0.38);
+}
+
+.img-details>h4 {
     font-weight: 300;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.4rem;
+}
+
+.img-details {
+    text-align: center;
+    margin-top: 0.25rem;
+    padding: 0.25rem;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+}
+
+.logo-container {
+    margin-left: 4rem;
+    display: flex;
+    width: 50vw;
 }
