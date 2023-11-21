@@ -49,5 +49,11 @@
 <div class='text-center'>
     {{$mahasiswa_read->links()}}
 </div>
+
+<br>
+
+<div class="text-center">
+  <a href="/insert_mahasiswa" class="btn btn-primary">Insert Mahasiswa</a>
+</div>
 </body>
 </html>

@@ -7,16 +7,17 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
-    public function create(Request $request) {
+    public function insert(Request $request) {
         
         $request->validate([
             'name' => 'required|min:3',
             'major' => 'required|in:Computer Science and Mathematics,Computer Science,Data Science,Visual Communication Design,Interior Design,Film',
+            'DOB' => 'required|date|before:today',
             'GPA' => 'required|numeric|between:1.00,4.00|regex:/^\d\.\d\d$/'
         ]);
 
         $faculty = 'School of Computer Science';
-        if(in_array($request->major, ['Visual Communication Design','Interior Design','Film'])){
+        if(in_array($request->major ?? '', ['Visual Communication Design','Interior Design','Film'])){
             $faculty = 'School of Design';
         }
 
@@ -27,6 +28,12 @@ class MahasiswaController extends Controller
             'DOB' => $request->DOB,
             'GPA' => $request->GPA
         ]);
+
+        return redirect('/insert_mahasiswa');
+    }
+
+    public function create(Request $request) {
+        return view('create');
     }
 
     public function read() {

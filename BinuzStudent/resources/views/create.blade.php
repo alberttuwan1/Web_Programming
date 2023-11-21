@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body class="p-5">
     <h1 class='text-center'>Insert Mahasiswa</h1><br>
 
     @if ($errors->any())
@@ -25,10 +25,41 @@
     </div>
     @endif
 
-    <form action="/insert_mahasiswa" method="post">
+    <form method="post" action="/insert_mahasiswa">
         @csrf
-        
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" placeholder="Use Full Name">
+        </div>
+
+        <div class="form-group">
+            <label for="inputMajor">Major</label>
+            <select id="inputMajor" class="form-control" name="major">
+                <option selected value="Computer Science and Mathematics">Computer Science and Mathematics</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Visual Communication Design">Visual Communication Design</option>
+                <option value="Interior Design">Interior Design</option>
+                <option value="Film">Film</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDOB">Date of Birth</label>
+            <input type="date" class="form-control" id="inputDOB" name="DOB">
+        </div>
+
+        <div class="form-group">
+            <label for="inputGPA">Grade Point Average (GPA)</label>
+            <input type="number" step=0.01 class="form-control" id="inputGPA" name="GPA" placeholder="format:#.##, e.g., 3.99">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Insert Student</button>
     </form>
+
+    <div class='text-center'>
+        <a href="/" class="btn btn-primary">Back to Home Page</a>
+    </div>
 </body>
 
 </html>

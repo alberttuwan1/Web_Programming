@@ -14,14 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', [MahasiswaController::class, 'read']);
 
 Route::get('/insert_mahasiswa', [MahasiswaController::class, 'create']);
-Route::post('/insert_mahasiswa', [MahasiswaController::class, 'create']);
+Route::post('/insert_mahasiswa', [MahasiswaController::class, 'insert']);
 
 Route::post('/delete_mahasiswa', [MahasiswaController::class, 'delete']);
 
