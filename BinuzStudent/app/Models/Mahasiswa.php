@@ -16,4 +16,6 @@ class Mahasiswa extends Model
         'DOB',
         'GPA'
     ];
+
+    protected $primaryKey = 'student_id';
 }

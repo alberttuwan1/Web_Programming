@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
@@ -21,7 +20,7 @@ class MahasiswaController extends Controller
             $faculty = 'School of Design';
         }
 
-        DB::table('mahasiswas')->insert([
+        Mahasiswa::create([
             'name' => $request->name,
             'major' => $request->major,
             'faculty' => $faculty,
@@ -36,7 +35,7 @@ class MahasiswaController extends Controller
     }
 
     public function delete(Request $request) {
-        $mahasiswa_read = Mahasiswa::simplePaginate(10);
+        Mahasiswa::destroy($request->id);
         return view('delete');
     }
 }
